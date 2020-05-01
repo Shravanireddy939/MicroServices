@@ -9,7 +9,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -18,32 +20,36 @@ import javax.persistence.Table;
 public class WalletAccount implements Serializable{
 
 	private static final long serialVersionUID = 1L;
-	
-	
-	
+		
 	
 @Id
-//@GeneratedValue(strategy=GenerationType.AUTO)@Column(length=10)
-private Integer account_Id;
+@GeneratedValue
 @Column(length=10)
-private Integer user_Id;
+private Integer account_Id;
 @Column(length=10)
 private Double account_Balance;
 @Column(length=10)
 private Enum status;
 
 
-@OneToMany(mappedBy="account_Id",cascade=CascadeType.ALL)
-@Column(length=10)
+@OneToOne(cascade=CascadeType.ALL)
+@JoinColumn(name="user_Id")
+private WalletUser WalletUser;
+
+
+
+@OneToMany (targetEntity=WalletTransactions.class, cascade = CascadeType.ALL)
+@JoinColumn	(name = "account_Id" , referencedColumnName = "account_Id")
 private List<WalletTransactions> wallettransactions;
 
 
 
-public Integer getUser_Id() {
-	return user_Id;
+
+public WalletUser getWalletUser() {
+	return WalletUser;
 }
-public void setUser_Id(Integer user_Id) {
-	this.user_Id = user_Id;
+public void setWalletUser(WalletUser walletUser) {
+	WalletUser = walletUser;
 }
 public Integer getAccount_Id() {
 	return account_Id;

@@ -36,9 +36,7 @@ import javax.persistence.Table;
 
 	
 	
-	
-
-	public Integer getUser_Id() {
+    public Integer getUser_Id() {
 		return user_Id;
 	}
 	public void setUser_Id(Integer user_Id) {

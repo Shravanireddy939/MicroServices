@@ -21,7 +21,7 @@ import javax.persistence.Table;
 	
 	private static final long serialVersionUID = 1L;
 	@Id
-	//@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(length=10)
 	private Integer user_Id;
 	@Column(length=10)
@@ -33,14 +33,10 @@ import javax.persistence.Table;
 	@Column(length=10)
 	private String login_Name;
 	
-	@OneToOne(cascade=CascadeType.ALL)
-	@JoinColumn(name="user_Id")
-	private WalletAccount walletaccount;
-	
-	
-	
 
-	public Integer getUser_Id() {
+	
+	
+    public Integer getUser_Id() {
 		return user_Id;
 	}
 	public void setUser_Id(Integer user_Id) {
@@ -70,12 +66,7 @@ import javax.persistence.Table;
 	public void setLogin_Name(String login_Name) {
 		this.login_Name = login_Name;
 	}
-	public WalletAccount getWalletaccount() {
-		return walletaccount;
-	}
-	public void setWalletaccount(WalletAccount walletaccount) {
-		this.walletaccount = walletaccount;
-	}
+
 
 
 

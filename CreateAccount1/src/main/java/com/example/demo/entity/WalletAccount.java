@@ -34,7 +34,7 @@ private Enum status;
 
 @OneToOne(cascade=CascadeType.ALL)
 @JoinColumn(name="user_Id")
-private WalletAccount walletaccount;
+private WalletUser WalletUser;
 
 
 
@@ -44,13 +44,13 @@ private List<WalletTransactions> wallettransactions;
 
 
 
-public WalletAccount getWalletaccount() {
-	return walletaccount;
-}
-public void setWalletaccount(WalletAccount walletaccount) {
-	this.walletaccount = walletaccount;
-}
 
+public WalletUser getWalletUser() {
+	return WalletUser;
+}
+public void setWalletUser(WalletUser walletUser) {
+	WalletUser = walletUser;
+}
 public Integer getAccount_Id() {
 	return account_Id;
 }

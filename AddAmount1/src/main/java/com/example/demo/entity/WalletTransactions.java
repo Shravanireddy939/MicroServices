@@ -1,13 +1,16 @@
 package com.example.demo.entity;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 
@@ -16,11 +19,8 @@ import javax.persistence.Table;
 
 public class WalletTransactions {
 	
-	
-	@Column(length=10)
-	private Integer account_Id;
-	@Id
-	//@GeneratedValue
+		@Id
+	@GeneratedValue
 	@Column(length=10)
 	private Integer transaction_Id;
 	@Column(length=10)
@@ -37,12 +37,12 @@ public class WalletTransactions {
 	private WalletAccount walletaccount;*/
 	
 
-	public Integer getAccount_Id() {
-		return account_Id;
-	}
-	public void setAccount_Id(Integer account_Id) {
-		this.account_Id = account_Id;
-	}
+	/*@OneToMany(mappedBy="account_Id",cascade=CascadeType.ALL)
+	@Column(length=10)
+	private List<WalletTransactions> wallettransactions;
+*/	
+	
+
 	public Integer getTransaction_Id() {
 		return transaction_Id;
 	}
