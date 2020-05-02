@@ -15,13 +15,16 @@ import com.example.demo.entity.WalletAccount;
 @Repository
 public interface Customer1Dao  extends JpaRepository<WalletAccount, Integer> {
 	
-	@Query("select e.account_Balance from WalletAccount e where e.user_Id=?1")
+	@Query("select e.account_Balance from WalletAccount e where e.WalletUser.user_Id=?1")
 	Double getAmount(@Param("C")Integer cusId1);
 	
 	@Modifying
 	@Transactional
-	@Query("UPDATE WalletAccount w SET w.account_Balance = ?2 where w.user_Id=?1")
+	@Query("UPDATE WalletAccount w SET w.account_Balance = ?2 where w.WalletUser.user_Id=?1")
 	Integer  updateAmount(@Param("C") Integer cusId, @Param("C") Double c);
+
+	@Query("select e from WalletAccount e where e.WalletUser.user_Id=?1")
+	WalletAccount fetchData(@Param("C")Integer cusId);                             //to insert data in database
 	
 	
 	/*@Modifying

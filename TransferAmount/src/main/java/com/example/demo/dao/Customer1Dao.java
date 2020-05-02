@@ -17,24 +17,29 @@ public interface Customer1Dao  extends JpaRepository<WalletAccount, Integer> {
 	
 
 		
-	@Query("select e.account_Balance from WalletAccount e where user_Id=?1")
+	@Query("select e.account_Balance from WalletAccount e where WalletUser.user_Id=?1")
 	Double getAmount1(@Param("userid")Integer cusId2);
 
 	@Modifying
 	@Transactional
-	@Query("update WalletAccount w set w.account_Balance = ?2 where user_Id=?1 ")
+	@Query("update WalletAccount w set w.account_Balance = ?2 where WalletUser.user_Id=?1 ")
 	Integer updateAmount1(@Param("userid")Integer cusId2, @Param("balance") Double h);
 
-	@Query("select e.account_Balance from WalletAccount e where user_Id=?1")
+	@Query("select e.account_Balance from WalletAccount e where WalletUser.user_Id=?1")
 	Double getAmount2(@Param("userid")Integer cusId1);
 
 	@Modifying
 	@Transactional
-	@Query("update WalletAccount w set w.account_Balance = ?2 where user_Id=?1 ")
+	@Query("update WalletAccount w set w.account_Balance = ?2 where WalletUser.user_Id=?1 ")
 	Integer updateAmount2(@Param("userid")Integer cusId1, @Param("balance") Double c);
-
-
 	
+	
+	/*@Query("select e from WalletAccount e where e.WalletUser.user_Id=?1")
+	WalletAccount fetchData1(@Param("C")Integer cusId1);                            //to insert data in database
+
+	@Query("select e from WalletAccount e where e.WalletUser.user_Id=?1")
+	WalletAccount fetchData2(Integer cusId2);*/
+
 
 	}
 

@@ -15,7 +15,7 @@ public interface Customer1Dao  extends JpaRepository<WalletAccount, Integer> {
 
 
 	
-	@Query("select e.account_Balance from WalletAccount e where e.user_Id=?1")
+	@Query("select e.account_Balance from WalletAccount e where e.WalletUser.user_Id=?1")
 	Double findBalance(@Param("C")Integer cusId1);
 	
 

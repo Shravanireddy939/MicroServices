@@ -1,9 +1,12 @@
 package com.example.demo.service;
 
+import com.example.demo.entity.WalletAccount;
 
 public interface CustomerService {
 
-	void addAmount(Integer cusId, Double balance);
+	Double addAmount(Integer cusId, Double balance);
+
+	void fetchData(Integer cusId);
 	
 
 

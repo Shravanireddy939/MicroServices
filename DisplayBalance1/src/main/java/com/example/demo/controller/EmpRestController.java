@@ -13,7 +13,7 @@ import com.example.demo.service.CustomerService;
 
 @RestController
 @RequestMapping("/Wallet")
-@CrossOrigin("http://localhost:2022")
+@CrossOrigin("http://localhost:4200")
 public class EmpRestController {
 
 @Autowired
